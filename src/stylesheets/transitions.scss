@@ -1,0 +1,15 @@
+// Video modal
+.video-enter-active,
+.video-leave-active {
+	transition: all .3s $easeInOutQuad;
+}
+
+.video-enter{
+	transform: scale(.9);
+	opacity: 0;
+}
+
+.video-leave-active{
+	transform: scale(.9);
+	opacity: 0;
+}
