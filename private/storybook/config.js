@@ -17,8 +17,6 @@ setOptions({
   url: '#'
 })
 
-store.commit('viewport/init')
-
 // Require all the .stories.js files from all components
 const req = require.context('@/components', true, /.stories.js$/)
 

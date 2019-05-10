@@ -5,6 +5,7 @@
 			'has-elevation': elevation
 		}"
 	>
+		<slot></slot>
 	</div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
 <style lang="scss">
 .lw-box{
 	background: $c-light-gray;
-	min-height: 40px;
+	min-height: 8px;
 	&.is-dark{
 		background: $c-dark-gray;
 	}

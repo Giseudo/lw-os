@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+[data-icon]:before {
+	font-family: "lw-os" !important;
+	content: attr(data-icon);
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: "lw-os" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-down:before {
+	content: "\61";
+}
+.icon-angle-left:before {
+	content: "\62";
+}
+.icon-angle-right:before {
+	content: "\63";
+}
+.icon-angle-up:before {
+	content: "\64";
+}
+.icon-brightness:before {
+	content: "\65";
+}
+.icon-search:before {
+	content: "\68";
+}
+.icon-divider:before {
+	content: "\6a";
+}
+.icon-gear:before {
+	content: "\6b";
+}
+.icon-grid:before {
+	content: "\6c";
+}
+.icon-minimize:before {
+	content: "\6e";
+}
+.icon-night:before {
+	content: "\6f";
+}
+.icon-close:before {
+	content: "\66";
+}
+.icon-maximize:before {
+	content: "\67";
+}
+.icon-console:before {
+	content: "\69";
+}
