@@ -78,7 +78,7 @@ export default {
 	align-items: center;
 	justify-content: space-between;
 	background: $c-light-gray;
-	padding: 5px;
+	padding: 5px 8px;
 	box-sizing: border-box;
 	&__column{
 		display: flex;

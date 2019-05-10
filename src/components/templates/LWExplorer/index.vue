@@ -19,7 +19,7 @@
 				<lw-file :dark="dark" />
 			</lw-box>
 
-			<sidenav class="lw-explorer__aside">
+			<aside class="lw-explorer__aside">
 				<lw-text type="title">
 					Urban
 				</lw-text>
@@ -32,7 +32,7 @@
 						Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum.
 					</lw-text>
 				</lw-box>
-			</sidenav>
+			</aside>
 		</div>
 	</lw-window>
 </template>
@@ -78,18 +78,15 @@ export default {
 	}
 	&__files{
 		flex: 1;
-		display: flex;
-		flex-flow: row wrap;
-		align-items: flex-start;
-		justify-content: flex-start;
 		padding: 8px;
+		overflow-y: auto;
 		.lw-file{
 			margin: 8px;
 		}
 	}
 	&__aside{
-		width: 300px;
-		flex-shrink: 0;
+		flex: .5;
+		max-width: 350px;
 		margin-left: 16px;
 		margin-right: 8px;
 		padding-top: 24px;
@@ -100,6 +97,7 @@ export default {
 	&__description{
 		padding: 8px 16px;
 		margin-top: 16px;
+		min-height: 200px;
 	}
 	.lw-window{
 		&__body{

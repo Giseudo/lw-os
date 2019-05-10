@@ -108,7 +108,7 @@ export default {
 		transform: translate(0, 0);
 		.lw-button-icon{
 			&__box{
-				box-shadow: 1px 1px 0px rgba(black, .2);
+				box-shadow: 2px 2px 0px rgba(black, .2);
 			}
 		}
 	}
