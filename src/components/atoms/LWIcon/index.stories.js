@@ -3,7 +3,7 @@ import LWBox from '../LWBox'
 import LWIcon from './index'
 
 storiesOf('Atom - lw-icon', module)
-	.add('icon - sm - default', () => ({
+	.add('sm - default', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon
@@ -25,7 +25,7 @@ storiesOf('Atom - lw-icon', module)
 			</lw-box>
 		`
 	}))
-	.add('icon - md - default', () => ({
+	.add('md - default', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon
@@ -47,7 +47,7 @@ storiesOf('Atom - lw-icon', module)
 			</lw-box>
 		`
 	}))
-	.add('icon - lg - default', () => ({
+	.add('lg - default', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon
@@ -69,7 +69,7 @@ storiesOf('Atom - lw-icon', module)
 			</lw-box>
 		`
 	}))
-	.add('icon - sm - dark', () => ({
+	.add('sm - dark', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon
@@ -91,7 +91,7 @@ storiesOf('Atom - lw-icon', module)
 			</lw-box>
 		`
 	}))
-	.add('icon - md - dark', () => ({
+	.add('md - dark', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon
@@ -113,7 +113,7 @@ storiesOf('Atom - lw-icon', module)
 			</lw-box>
 		`
 	}))
-	.add('icon - lg - dark', () => ({
+	.add('lg - dark', () => ({
 		components: {
 			'lw-box': LWBox,
 			'lw-icon': LWIcon

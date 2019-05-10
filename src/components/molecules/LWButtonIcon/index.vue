@@ -3,11 +3,10 @@
 		:class="[
 			`lw-button-icon--${size}`,
 			{
-				'is-dark': dark,
-				'is-focus': focus
+				'is-dark': dark
 			}
 		]"
-		:type="button"
+		:type="type"
 		@click="onClick"
 	>
 		<lw-box class="lw-button-icon__box" :dark="dark">
@@ -70,7 +69,6 @@ export default {
 	border: 0;
 	position: relative;
 	cursor: pointer;
-	transition: .05s linear;
 	outline: none;
 	&__box{
 		position: absolute;
@@ -81,7 +79,6 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: .05s linear;
 	}
 	&__icon{
 	}
@@ -100,10 +97,10 @@ export default {
 
 	&:hover,
 	&:focus{
-		transform: translate(-2px, -2px);
+		transform: translate(-1px, -1px);
 		.lw-button-icon{
 			&__box{
-				box-shadow: 4px 4px 0px rgba(black, .2);
+				box-shadow: 3px 3px 0px rgba(black, .2);
 			}
 		}
 	}
@@ -111,7 +108,7 @@ export default {
 		transform: translate(0, 0);
 		.lw-button-icon{
 			&__box{
-				box-shadow: none;
+				box-shadow: 1px 1px 0px rgba(black, .2);
 			}
 		}
 	}

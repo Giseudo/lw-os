@@ -1,41 +1,41 @@
 <template>
-	<div class="lw-title-bar"
+	<div class="lw-titlebar"
 		:class="[
 			{
 				'is-dark': dark
 			}
 		]"
 	>
-		<div class="lw-title-bar__column">
+		<div class="lw-titlebar__column">
 			<lw-icon
-				class="lw-title-bar__icon"
+				class="lw-titlebar__icon"
 				size="sm"
 				:name="icon"
 				:dark="true"
 			/>
 			<lw-text
-				class="lw-title-bar__title"
+				class="lw-titlebar__title"
 				:dark="dark"
 			>
 				{{ title }}
 			</lw-text>
 		</div>
 
-		<div class="lw-title-bar__column">
+		<div class="lw-titlebar__column">
 			<lw-icon
-				class="lw-title-bar__button"
+				class="lw-titlebar__button"
 				name="minimize"
 				size="sm"
 				:dark="dark"
 			/>
 			<lw-icon
-				class="lw-title-bar__button"
+				class="lw-titlebar__button"
 				name="maximize"
 				size="sm"
 				:dark="dark"
 			/>
 			<lw-icon
-				class="lw-title-bar__button"
+				class="lw-titlebar__button"
 				name="close"
 				size="sm"
 				:dark="dark"
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lw-title-bar{
+.lw-titlebar{
 	height: 38px;
 	display: flex;
 	align-items: center;
@@ -106,7 +106,6 @@ export default {
 		&:hover{
 			text-shadow: 2px 2px 0 rgba(black, .2);
 			transform: translate(-1px, -1px);
-			transition: .1s linear;
 		}
 	}
 

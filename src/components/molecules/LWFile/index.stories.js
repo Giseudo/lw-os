@@ -1,12 +1,12 @@
 import { storiesOf } from '@storybook/vue'
 import LWBox from '@/components/atoms/LWBox'
-import LWButtonIcon from './index'
+import LWFile from './index'
 
-storiesOf('Molecule - lw-button-icon', module)
+storiesOf('Molecule - lw-file', module)
 	.add('default', () => ({
 		components: {
 			'lw-box': LWBox,
-			'lw-button-icon': LWButtonIcon
+			'lw-file': LWFile
 		},
 		data: () => ({
 			style: {
@@ -14,16 +14,19 @@ storiesOf('Molecule - lw-button-icon', module)
 		}),
 		template: `
 			<lw-box :style="{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', margin: '40px', padding: '24px' }" :dark="true">
-				<lw-button-icon size="sm" name="search" :style="style" />
-				<lw-button-icon size="md" name="search" :style="style" />
-				<lw-button-icon size="lg" name="search" :style="style" />
+				<lw-file :style="style" />
+				<lw-file :style="style" />
+				<lw-file :style="style" />
+				<lw-file :style="style" />
+				<lw-file :style="style" />
+				<lw-file :style="style" />
 			</lw-box>
 		`
 	}))
 	.add('dark', () => ({
 		components: {
 			'lw-box': LWBox,
-			'lw-button-icon': LWButtonIcon
+			'lw-file': LWFile
 		},
 		data: () => ({
 			style: {
@@ -31,9 +34,12 @@ storiesOf('Molecule - lw-button-icon', module)
 		}),
 		template: `
 			<lw-box :style="{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', margin: '40px', padding: '24px' }" :dark="false">
-				<lw-button-icon size="sm" name="search" :style="style" :dark="true" />
-				<lw-button-icon size="md" name="search" :style="style" :dark="true" />
-				<lw-button-icon size="lg" name="search" :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
+				<lw-file :style="style" :dark="true" />
 			</lw-box>
 		`
 	}))

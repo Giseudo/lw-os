@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import LWBox from './index'
 
 storiesOf('Atom - lw-box', module)
-	.add('box - default', () => ({
+	.add('default', () => ({
 		components: {
 			'lw-box': LWBox
 		},
@@ -10,7 +10,7 @@ storiesOf('Atom - lw-box', module)
 			<lw-box :style="{ height: '300px', margin: '24px' }" />
 		`
 	}))
-	.add('box - dark', () => ({
+	.add('dark', () => ({
 		components: {
 			'lw-box': LWBox
 		},
