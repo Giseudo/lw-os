@@ -23,6 +23,7 @@
 		<lw-input-select
 			class="lw-toolbar__address"
 			size="sm"
+			placeholder="/home/portfolio/urban"
 			:dark="dark"
 		>
 			<lw-option :dark="false">
