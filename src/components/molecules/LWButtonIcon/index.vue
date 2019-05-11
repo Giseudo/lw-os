@@ -91,8 +91,8 @@ export default {
 		height: 28px;
 	}
 	&--md{
-		width: 36px;
-		height: 36px;
+		width: 38px;
+		height: 38px;
 	}
 	&--lg{
 		width: 48px;

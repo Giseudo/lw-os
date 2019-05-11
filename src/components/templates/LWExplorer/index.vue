@@ -9,7 +9,7 @@
 	>
 		<lw-toolbar class="lw-explorer__toolbar" :dark="dark" />
 		<div class="lw-explorer__body">
-			<lw-box class="lw-explorer__files" :dark="dark">
+			<lw-box-scroll class="lw-explorer__files" :dark="dark">
 				<lw-file :dark="dark" />
 				<lw-file :dark="!dark" />
 				<lw-file :dark="dark" />
@@ -17,7 +17,27 @@
 				<lw-file :dark="dark" />
 				<lw-file :dark="dark" />
 				<lw-file :dark="dark" />
-			</lw-box>
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+				<lw-file :dark="dark" />
+			</lw-box-scroll>
 
 			<aside class="lw-explorer__aside">
 				<lw-text type="title">
@@ -27,11 +47,11 @@
 					<lw-tag v-html="'Frontend'" />
 					<lw-tag v-html="'3D'" />
 				</div>
-				<lw-box class="lw-explorer__description">
-					<lw-text>
-						Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum.
+				<lw-box-scroll class="lw-explorer__description">
+					<lw-text class="lw-explorer__content">
+						Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum. Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum. Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum. Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum. Dolor placeat dolore alias impedit voluptas excepturi ab impedit rerum. 
 					</lw-text>
-				</lw-box>
+				</lw-box-scroll>
 			</aside>
 		</div>
 	</lw-window>
@@ -40,7 +60,7 @@
 <script>
 import LWWindow from '@/components/organisms/LWWindow'
 import LWToolbar from '@/components/organisms/LWToolbar'
-import LWBox from '@/components/atoms/LWBox'
+import LWBoxScroll from '@/components/atoms/LWBoxScroll'
 import LWTag from '@/components/atoms/LWTag'
 import LWText from '@/components/atoms/LWText'
 import LWFile from '@/components/molecules/LWFile'
@@ -49,7 +69,7 @@ export default {
 	components: {
 		'lw-window': LWWindow,
 		'lw-toolbar': LWToolbar,
-		'lw-box': LWBox,
+		'lw-box-scroll': LWBoxScroll,
 		'lw-file': LWFile,
 		'lw-tag': LWTag,
 		'lw-text': LWText,
@@ -80,8 +100,6 @@ export default {
 	}
 	&__files{
 		flex: 1;
-		padding: 8px;
-		overflow-y: auto;
 		.lw-file{
 			margin: 8px;
 		}
@@ -93,15 +111,18 @@ export default {
 		padding-top: 32px;
 		display: flex;
 		flex-flow: column;
+		overflow: hidden;
 	}
 	&__tags{
 		margin-top: 32px;
 	}
 	&__description{
-		padding: 16px;
+		min-height: 200px;
 		margin-top: 16px;
-		flex: .3;
-		overflow-y: auto;
+		flex: .4;
+	}
+	&__content{
+		padding: 16px;
 	}
 	.lw-window{
 		&__body{

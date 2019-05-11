@@ -1,7 +1,13 @@
 @import "fontfaces";
 @import "icons";
-// @import "~swiper/dist/css/swiper.min.css";
+@import "~swiper/dist/css/swiper.min.css";
 
 body{
 	margin: 0;
+}
+
+.lw-text-overflow{
+  white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

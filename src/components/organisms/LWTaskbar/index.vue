@@ -22,6 +22,18 @@
 			>
 				Console
 			</lw-button-bar>
+			<lw-button-bar
+				class="lw-taskbar__application"
+				icon="console"
+			>
+				Console
+			</lw-button-bar>
+			<lw-button-bar
+				class="lw-taskbar__application"
+				icon="console"
+			>
+				Console
+			</lw-button-bar>
 		</div>
 
 		<lw-icon class="lw-taskbar__divider" name="divider" />
@@ -65,18 +77,24 @@ export default {
 	padding: 8px;
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 	&__start{
-		width: 80px !important;
+		flex: 0 100px;
 		flex-shrink: 0;
 	}
 	&__running{
-		flex: 1;
 		display: flex;
+		flex: 1;
+		flex-grow: 5;
+		flex-shrink: 5;
 	}
 	&__application{
 		margin-right: 8px;
 		flex: .2;
-		min-width: 160px;
+		min-width: 0;
+		&:last-child{
+			margin-right: 0;
+		}
 	}
 	&__divider{
 	}

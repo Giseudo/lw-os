@@ -13,7 +13,7 @@
 				:dark="true"
 			/>
 			<lw-text
-				class="lw-button-bar__label"
+				class="lw-button-bar__label lw-text-overflow"
 				type="small"
 				:dark="dark"
 			>
@@ -79,6 +79,7 @@ export default {
 		align-items: center;
 		justify-content: center;
 		margin-right: 8px;
+		flex-shrink: 0;
 	}
 	&__label{
 		margin-right: 8px;

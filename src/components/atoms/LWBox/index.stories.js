@@ -7,7 +7,7 @@ storiesOf('Atom - lw-box', module)
 			'lw-box': LWBox
 		},
 		template: `
-			<lw-box :style="{ height: '300px', margin: '24px' }" />
+			<lw-box :style="{ height: '120px', margin: '24px' }" />
 		`
 	}))
 	.add('dark', () => ({
