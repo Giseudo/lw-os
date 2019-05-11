@@ -12,23 +12,37 @@
 			name="angle-left"
 			:dark="dark"
 		/>
+
 		<lw-button-icon
 			class="lw-toolbar__button lw-toolbar__button--parent"
 			size="sm"
 			name="parent"
 			:dark="dark"
 		/>
+
 		<lw-input-select
 			class="lw-toolbar__address"
 			size="sm"
 			:dark="dark"
-		/>
+		>
+			<lw-option :dark="false">
+				Home
+			</lw-option>
+			<lw-option :dark="false">
+				Work
+			</lw-option>
+			<lw-option :dark="false">
+				Tools
+			</lw-option>
+		</lw-input-select>
+
 		<lw-button-icon
 			class="lw-toolbar__button lw-toolbar__button--view"
 			size="sm"
 			name="grid"
 			:dark="dark"
 		/>
+
 		<lw-button-icon
 			class="lw-toolbar__button lw-toolbar__button--search"
 			size="sm"
@@ -41,11 +55,13 @@
 <script>
 import LWInputSelect from '@/components/molecules/LWInputSelect'
 import LWButtonIcon from '@/components/molecules/LWButtonIcon'
+import LWOption from '@/components/molecules/LWOption'
 
 export default {
 	components: {
 		'lw-input-select': LWInputSelect,
-		'lw-button-icon': LWButtonIcon
+		'lw-button-icon': LWButtonIcon,
+		'lw-option': LWOption,
 	},
 
 	props: {
