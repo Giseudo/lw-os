@@ -11,7 +11,7 @@
 	>
 		<lw-box class="lw-button-icon__box" :dark="dark">
 			<lw-icon class="lw-button-icon__icon"
-				:size="iconSize"
+				:size="getIconSize"
 				:name="name"
 				:dark="dark"
 			/>
@@ -38,6 +38,10 @@ export default {
 			type: String,
 			default: 'md' // sm | md | lg
 		},
+		iconSize: {
+			type: String,
+			default: null // sm | md | lg
+		},
 		name: {
 			type: String,
 			default: undefined
@@ -49,8 +53,8 @@ export default {
 	},
 
 	computed: {
-		iconSize() {
-			return this.size == 'lg' ? 'md' : 'sm'
+		getIconSize() {
+			return this.iconSize || (this.size == 'lg' ? 'md' : 'sm')
 		}
 	},
 	

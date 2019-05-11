@@ -21,7 +21,7 @@
 
 			<aside class="lw-explorer__aside">
 				<lw-text type="title">
-					Urban
+					Lorem ipsum dolor sit
 				</lw-text>
 				<div class="lw-explorer__tags">
 					<lw-tag v-html="'Frontend'" />
@@ -66,15 +66,17 @@ export default {
 
 <style lang="scss">
 .lw-explorer{
+	padding-bottom: 2px;
 	&__toolbar{
 		flex-shrink: 0;
+		margin-right: 2px;
 	}
 	&__body{
 		margin-top: 8px;
-		margin-bottom: 4px;
 		display: flex;
 		flex-flow: row;
 		flex: 1;
+		margin-right: 2px;
 	}
 	&__files{
 		flex: 1;
@@ -88,16 +90,18 @@ export default {
 		flex: .5;
 		max-width: 350px;
 		margin-left: 16px;
-		margin-right: 8px;
-		padding-top: 24px;
+		padding-top: 32px;
+		display: flex;
+		flex-flow: column;
 	}
 	&__tags{
 		margin-top: 32px;
 	}
 	&__description{
-		padding: 8px 16px;
+		padding: 16px;
 		margin-top: 16px;
-		min-height: 200px;
+		flex: .3;
+		overflow-y: auto;
 	}
 	.lw-window{
 		&__body{

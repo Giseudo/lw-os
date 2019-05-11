@@ -1,7 +1,14 @@
 <template>
   <div id="app" class="lw-app">
-    <router-view class="lw-app__view" />
-		<lw-taskbar class="lw-app__taskbar" />
+		<div class="lw-app__desktop">
+			<router-view
+				class="lw-app__view"
+			/>
+		</div>
+
+		<lw-taskbar
+			class="lw-app__taskbar"
+		/>
   </div>
 </template>
 
@@ -28,8 +35,16 @@ body{
 	height: 100%;
 	display: flex;
 	flex-flow: column;
-	&__view{
+	&__desktop{
 		flex: 1;
+		position: relative;
+	}
+	&__view{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
 	}
 }
 </style>

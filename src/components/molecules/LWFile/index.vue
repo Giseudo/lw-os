@@ -4,6 +4,8 @@
 		:class="[
 			{}
 		]"
+		tabindex="0"
+		@click.native="onClick"
 	>
 		<div class="lw-file__preview">
 		</div>
@@ -32,6 +34,13 @@ export default {
 			type: Boolean,
 			default: false
 		}
+	},
+
+	methods: {
+		onClick(event) {
+			this.$emit('click', event)
+			this.$el.blur()
+		}
 	}
 }
 </script>
@@ -41,6 +50,8 @@ export default {
 	padding: 8px;
 	display: inline-flex;
 	flex-flow: column;
+	cursor: pointer;
+	outline: none;
 	&__preview{
 		background: $c-gray;
 		width: 112px;
@@ -53,6 +64,15 @@ export default {
 				background: $c-light-gray;
 			}
 		}
+	}
+	&:hover,
+	&:focus{
+		transform: translate(-1px, -1px);
+		box-shadow: 3px 3px 0px rgba(black, .2);
+	}
+	&:active{
+		transform: translate(0, 0);
+		box-shadow: 2px 2px 0px rgba(black, .2);
 	}
 }
 </style>

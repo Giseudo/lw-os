@@ -3,6 +3,7 @@
 		:class="{
 			'is-dark': dark
 		}"
+		@click="onClick"
 	>
 		<lw-box class="lw-button-bar__box" :dark="dark">
 			<lw-icon
@@ -45,6 +46,13 @@ export default {
 			type: String,
 			default: undefined
 		}
+	},
+
+	methods: {
+		onClick(event) {
+			this.$emit('click', event)
+			this.$el.blur()
+		}
 	}
 }
 </script>
@@ -55,6 +63,8 @@ export default {
 	border: 0;
 	margin: 0;
 	padding: 0;
+	outline: none;
+	cursor: pointer;
 	&__box{
 		height: 38px;
 		display: flex;
@@ -72,6 +82,24 @@ export default {
 	}
 	&__label{
 		margin-right: 8px;
+	}
+
+	&:hover,
+	&:focus{
+		transform: translate(-1px, -1px);
+		.lw-button-bar{
+			&__box{
+				box-shadow: 3px 3px 0px rgba(black, .2);
+			}
+		}
+	}
+	&:active{
+		transform: translate(0, 0);
+		.lw-button-bar{
+			&__box{
+				box-shadow: 2px 2px 0px rgba(black, .2);
+			}
+		}
 	}
 
 	&.is-dark{

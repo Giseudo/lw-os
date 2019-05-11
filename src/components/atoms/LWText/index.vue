@@ -47,10 +47,11 @@ export default {
 		font-weight: 400;
 	}
 	&--title{
-		font-size: 64px;
+		font-size: 52px;
 		font-weight: 200;
 		letter-spacing: 3px;
 		text-shadow: 4px 4px 0 rgba(black, .1);
+		line-height: 120%;
 	}
 	&--caption{
 		font-size: 9px;

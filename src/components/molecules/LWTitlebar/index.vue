@@ -78,7 +78,7 @@ export default {
 	align-items: center;
 	justify-content: space-between;
 	background: $c-light-gray;
-	padding: 5px 8px;
+	padding: 5px 10px 5px 8px;
 	box-sizing: border-box;
 	&__column{
 		display: flex;
@@ -106,6 +106,10 @@ export default {
 		&:hover{
 			text-shadow: 2px 2px 0 rgba(black, .2);
 			transform: translate(-1px, -1px);
+		}
+		&:active{
+			transform: translate(0, 0);
+			text-shadow: 0px 0px 0px rgba(black, .2);
 		}
 	}
 

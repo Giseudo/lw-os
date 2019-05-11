@@ -2,7 +2,8 @@
 	<div class="lw-taskbar">
 		<lw-button-icon
 			class="lw-taskbar__start"
-			name="gear"
+			name="brand"
+			icon-size="lg"
 		/>
 
 		<lw-icon class="lw-taskbar__divider" name="divider" />
@@ -17,7 +18,7 @@
 			</lw-button-bar>
 			<lw-button-bar
 				class="lw-taskbar__application"
-				icon="gear"
+				icon="console"
 			>
 				Console
 			</lw-button-bar>
@@ -35,6 +36,10 @@
 				class="lw-taskbar__language"
 				name="grid"
 			/>
+
+			<lw-clock
+				class="lw-taskbar__clock"
+			/>
 		</aside>
 	</div>
 </template>
@@ -43,12 +48,14 @@
 import LWIcon from '@/components/atoms/LWIcon'
 import LWButtonIcon from '@/components/molecules/LWButtonIcon'
 import LWButtonBar from '@/components/molecules/LWButtonBar'
+import LWClock from '@/components/molecules/LWClock'
 
 export default {
 	components: {
 		'lw-icon': LWIcon,
 		'lw-button-icon': LWButtonIcon,
-		'lw-button-bar': LWButtonBar
+		'lw-button-bar': LWButtonBar,
+		'lw-clock': LWClock,
 	}
 }
 </script>
@@ -60,20 +67,26 @@ export default {
 	align-items: center;
 	&__start{
 		width: 80px !important;
+		flex-shrink: 0;
 	}
 	&__running{
 		flex: 1;
+		display: flex;
 	}
 	&__application{
 		margin-right: 8px;
-		width: 200px;
+		flex: .2;
+		min-width: 160px;
 	}
 	&__divider{
 	}
 	&__aside{
+		display: flex;
+		.lw-button-icon{
+			margin-right: 8px;
+		}
 	}
 	&__contrast{
-		margin-right: 8px;
 	}
 }
 </style>

@@ -15,7 +15,7 @@
 		<lw-button-icon
 			class="lw-toolbar__button lw-toolbar__button--parent"
 			size="sm"
-			name="close"
+			name="parent"
 			:dark="dark"
 		/>
 		<lw-input-select
