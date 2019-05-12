@@ -13,26 +13,9 @@
 				class="lw-taskbar__application"
 				icon="search"
 				:dark="true"
+				v-for="application in running"
 			>
-				Explorer
-			</lw-button-bar>
-			<lw-button-bar
-				class="lw-taskbar__application"
-				icon="console"
-			>
-				Console
-			</lw-button-bar>
-			<lw-button-bar
-				class="lw-taskbar__application"
-				icon="console"
-			>
-				Console
-			</lw-button-bar>
-			<lw-button-bar
-				class="lw-taskbar__application"
-				icon="console"
-			>
-				Console
+				{{ application }}
 			</lw-button-bar>
 		</div>
 
@@ -68,6 +51,13 @@ export default {
 		'lw-button-icon': LWButtonIcon,
 		'lw-button-bar': LWButtonBar,
 		'lw-clock': LWClock,
+	},
+
+	props: {
+		running: {
+			type: Array,
+			default: () => ([])
+		}
 	}
 }
 </script>

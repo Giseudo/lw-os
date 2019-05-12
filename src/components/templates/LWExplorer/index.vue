@@ -1,5 +1,5 @@
 <template>
-	<lw-window class="lw-explorer"
+	<div class="lw-explorer"
 		:dark="dark"
 		:class="[
 			{
@@ -54,11 +54,10 @@
 				</lw-box-scroll>
 			</aside>
 		</div>
-	</lw-window>
+	</div>
 </template>
 
 <script>
-import LWWindow from '@/components/organisms/LWWindow'
 import LWToolbar from '@/components/organisms/LWToolbar'
 import LWBoxScroll from '@/components/atoms/LWBoxScroll'
 import LWTag from '@/components/atoms/LWTag'
@@ -67,7 +66,6 @@ import LWFile from '@/components/molecules/LWFile'
 
 export default {
 	components: {
-		'lw-window': LWWindow,
 		'lw-toolbar': LWToolbar,
 		'lw-box-scroll': LWBoxScroll,
 		'lw-file': LWFile,
@@ -87,6 +85,8 @@ export default {
 <style lang="scss">
 .lw-explorer{
 	padding-bottom: 2px;
+	display: flex;
+	flex-flow: column;
 	&__toolbar{
 		flex-shrink: 0;
 		margin-right: 2px;

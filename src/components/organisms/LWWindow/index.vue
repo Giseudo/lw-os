@@ -45,6 +45,8 @@ export default {
 	&__body{
 		min-height: 200px;
 		flex: 1;
+		padding: 8px;
+		display: flex;
 	}
 
 	&.is-dark{
