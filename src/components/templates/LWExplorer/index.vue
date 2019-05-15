@@ -100,6 +100,7 @@ export default {
 	}
 	&__files{
 		flex: 1;
+		height: 100%;
 		.lw-file{
 			margin: 8px;
 		}

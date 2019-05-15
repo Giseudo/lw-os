@@ -4,22 +4,20 @@
 			class="lw-taskbar__start"
 			name="brand"
 			icon-size="lg"
+			@click="$emit('start', $event)"
 		/>
-
-		<lw-icon class="lw-taskbar__divider" name="divider" />
 
 		<div class="lw-taskbar__running">
 			<lw-button-bar
 				class="lw-taskbar__application"
 				icon="search"
-				:dark="true"
-				v-for="application in running"
+				:dark="!program.minimized"
+				v-for="(program, name) in programs"
+				@click="$emit('toggle', name)"
 			>
-				{{ application }}
+				{{ program.name }}
 			</lw-button-bar>
 		</div>
-
-		<lw-icon class="lw-taskbar__divider" name="divider" />
 
 		<aside class="lw-taskbar__aside">
 			<lw-button-icon
@@ -54,9 +52,9 @@ export default {
 	},
 
 	props: {
-		running: {
-			type: Array,
-			default: () => ([])
+		programs: {
+			type: Object,
+			default: () => ({})
 		}
 	}
 }
@@ -71,6 +69,7 @@ export default {
 	&__start{
 		flex: 0 100px;
 		flex-shrink: 0;
+		margin-right: 8px;
 	}
 	&__running{
 		display: flex;

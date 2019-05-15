@@ -7,6 +7,7 @@
 				'is-dark': dark
 			}
 		]"
+		@click="$emit('click', $event)"
 	>
 	</div>
 </template>
@@ -42,6 +43,9 @@ export default {
 	}
 	&--lg{
 		font-size: 32px;
+	}
+	&--xl{
+		font-size: 60px;
 	}
 	&.is-dark{
 		color: $c-light-gray;

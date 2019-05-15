@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import explorer from './storeModules/explorer'
 import settings from './storeModules/settings'
-import system from './storeModules/system'
+import program from './storeModules/program'
 
 Vue.use(Vuex)
 
@@ -10,7 +10,7 @@ Vue.use(Vuex)
 const modules = {
 	explorer,
 	settings,
-	system
+	program
 }
 
 // Dynamically import and namespace Vuex modules

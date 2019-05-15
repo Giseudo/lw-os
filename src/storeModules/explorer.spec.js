@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { assert, expect } from 'chai'
 
-import data from './explorer.data.mock'
+import data from './explorer.mock'
 import explorer from './explorer'
 
 Vue.use(Vuex)

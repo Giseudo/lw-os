@@ -1,15 +1,36 @@
 <template>
   <div id="app" class="lw-app">
 		<div class="lw-app__desktop">
-			<lw-window class="lw-app__window" v-if="explorer">
-				<lw-explorer />
+			<lw-program
+				class="lw-app__program"
+				icon="search"
+				name="Explorer"
+				@click="$store.commit('program/open', 'explorer')"
+			/>
+
+			<lw-window
+				class="lw-app__window"
+				:class="{ 'is-resized': program.state == 'resized' }"
+				v-for="(program, name) in running"
+				v-if="!program.minimized"
+				:key="name"
+				:width="program.width"
+				:height="program.height"
+				:maximized="program.state == 'maximized'"
+				@maximize="onWindowUpdate('maximize', name)"
+				@minimize="onWindowUpdate('minimize', name)"
+				@resize="onWindowUpdate('resize', name, $event)"
+				@close="onWindowUpdate('close', name)"
+			>
+				<component :is="program.component" />
 			</lw-window>
 		</div>
 
 		<lw-taskbar
 			class="lw-app__taskbar"
-			:running="applications"
-			@click.native="explorer = !explorer"
+			:programs="running"
+			@start="$store.commit('program/minimize', 'all')"
+			@toggle="$store.commit('program/open', $event)"
 		/>
 
 		<lw-post-processing
@@ -25,6 +46,7 @@ import LWTaskbar from '@/components/organisms/LWTaskbar'
 import LWPostProcessing from '@/components/atoms/LWPostProcessing'
 import LWWindow from '@/components/organisms/LWWindow'
 import LWExplorer from '@/components/templates/LWExplorer'
+import LWProgram from '@/components/atoms/LWProgram'
 
 export default {
 	components: {
@@ -32,21 +54,39 @@ export default {
 		'lw-window': LWWindow,
 		'lw-post-processing': LWPostProcessing,
 		'lw-explorer': LWExplorer,
+		'lw-program': LWProgram,
 	},
 
 	computed: {
 		...mapGetters({
 			postProcessing: 'settings/getPostProcessing',
-			applications: 'system/getApplications'
+			running: 'program/getRunning'
 		})
 	},
 
 	data: () => ({
-		explorer: false
 	}),
 
 	mounted() {
-		this.$store.commit('system/execute', { name: 'explorer' })
+	},
+
+	methods: {
+		onWindowUpdate(action, name, payload = null) {
+			switch (action) {
+				case 'minimize':
+					this.$store.commit('program/minimize', name)
+					break
+				case 'maximize':
+					this.$store.commit('program/maximize', name)
+					break
+				case 'close':
+					this.$store.commit('program/close', name)
+					break
+				case 'resize':
+					this.$store.commit('program/resize', { name, size: payload })
+					break
+			}
+		},
 	}
 }
 </script>
@@ -76,6 +116,12 @@ body{
 		bottom: 0px;
 		display: flex;
 		flex-flow: column;
+		&.is-resized{
+			top: 200px;
+			left: 40px;
+			right: 200px;
+			bottom: 100px;
+		}
 	}
 	&__view{
 		flex: 1;
@@ -87,6 +133,12 @@ body{
 		right: 0;
 		bottom: 0;
 		z-index: 100;
+	}
+	&__program{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 </style>

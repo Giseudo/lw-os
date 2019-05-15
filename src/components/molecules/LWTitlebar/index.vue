@@ -27,18 +27,21 @@
 				name="minimize"
 				size="sm"
 				:dark="dark"
+				@click="$emit('minimize')"
 			/>
 			<lw-icon
 				class="lw-titlebar__button"
-				name="maximize"
+				:name="maximized ? 'maximize' : 'angle-up'"
 				size="sm"
 				:dark="dark"
+				@click="$emit(maximized ? 'resize' : 'maximize')"
 			/>
 			<lw-icon
 				class="lw-titlebar__button"
 				name="close"
 				size="sm"
 				:dark="dark"
+				@click="$emit('close')"
 			/>
 		</div>
 	</div>
@@ -66,6 +69,10 @@ export default {
 		icon: {
 			type: String,
 			default: 'search'
+		},
+		maximized: {
+			type: Boolean,
+			default: true
 		}
 	}
 }

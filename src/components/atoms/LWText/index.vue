@@ -17,7 +17,7 @@ export default {
 	props: {
 		type: {
 			type: String,
-			default: 'body' // body | small | title
+			default: 'body' // body | small | title | subhead
 		},
 		dark: {
 			type: Boolean,
@@ -56,6 +56,12 @@ export default {
 	&--caption{
 		font-size: 9px;
 		font-weight: 600;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+	}
+	&--subhead{
+		font-size: 32px;
+		font-weight: 400;
 		letter-spacing: 4px;
 		text-transform: uppercase;
 	}
