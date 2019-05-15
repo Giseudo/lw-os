@@ -84,9 +84,10 @@ export default {
 
 <style lang="scss">
 .lw-explorer{
-	padding-bottom: 2px;
+	padding-bottom: 4px;
 	display: flex;
 	flex-flow: column;
+	box-sizing: border-box;
 	&__toolbar{
 		flex-shrink: 0;
 		margin-right: 2px;
