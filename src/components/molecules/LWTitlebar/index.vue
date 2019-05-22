@@ -27,14 +27,14 @@
 				name="minimize"
 				size="sm"
 				:dark="dark"
-				@click="$emit('minimize')"
+				@click="$emit('suspend')"
 			/>
 			<lw-icon
 				class="lw-titlebar__button"
 				:name="maximized ? 'maximize' : 'angle-up'"
 				size="sm"
 				:dark="dark"
-				@click="$emit(maximized ? 'resize' : 'maximize')"
+				@click="$emit('maximize', !maximized)"
 			/>
 			<lw-icon
 				class="lw-titlebar__button"

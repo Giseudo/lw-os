@@ -101,15 +101,15 @@ export default {
 
 	&:hover,
 	&:focus{
-		transform: translate(-1px, -1px);
+		transform: translateY(-1px);
 		.lw-button-icon{
 			&__box{
-				box-shadow: 3px 3px 0px rgba(black, .2);
+				box-shadow: 2px 3px 0px rgba(black, .2);
 			}
 		}
 	}
 	&:active{
-		transform: translate(0, 0);
+		transform: translateY(0);
 		.lw-button-icon{
 			&__box{
 				box-shadow: 2px 2px 0px rgba(black, .2);

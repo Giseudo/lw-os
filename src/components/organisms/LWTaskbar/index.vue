@@ -11,7 +11,8 @@
 			<lw-button-bar
 				class="lw-taskbar__application"
 				icon="search"
-				:dark="!program.minimized"
+				:dark="!program.suspended"
+				:key="name"
 				v-for="(program, name) in programs"
 				@click="$emit('toggle', name)"
 			>

@@ -13,6 +13,8 @@
   "dependencies": {
     "bourbon-neat": "^3.0.1",
     "core-js": "^2.6.5",
+    "interactjs": "^1.4.0-rc.13",
+    "moment": "^2.24.0",
     "swiper": "^4.5.0",
     "three": "^0.93.0",
     "vue": "^2.6.10",

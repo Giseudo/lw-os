@@ -5,15 +5,16 @@
 		}"
 	>
 		<lw-text class="lw-clock__day" type="caption" :dark="dark">
-			Sat
+			{{ day }}
 		</lw-text>
 		<lw-text class="lw-clock__time" type="caption" :dark="dark">
-			16:10
+			{{ time }}
 		</lw-text>
 	</div>
 </template>
 
 <script>
+import moment from 'moment'
 import LWText from '@/components/atoms/LWText'
 
 export default {
@@ -25,6 +26,28 @@ export default {
 		dark: {
 			type: Boolean,
 			default: false
+		}
+	},
+	
+	data: () => ({
+		interval: null,
+		day: null,
+		time: null
+	}),
+
+	mounted() {
+		this.update()
+		this.interval = setInterval(this.update, 1000)
+	},
+
+	destroyed() {
+		clearInterval(this.interval)
+	},
+
+	methods: {
+		update() {
+			this.day = moment().format('ddd')
+			this.time = moment().format('HH:mm')
 		}
 	}
 }

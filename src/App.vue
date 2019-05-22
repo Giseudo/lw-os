@@ -12,14 +12,15 @@
 				class="lw-app__window"
 				:class="{ 'is-resized': program.state == 'resized' }"
 				v-for="(program, name) in running"
-				v-if="!program.minimized"
+				v-if="!program.suspended"
 				:key="name"
 				:width="program.width"
 				:height="program.height"
-				:maximized="program.state == 'maximized'"
-				@maximize="onWindowUpdate('maximize', name)"
-				@minimize="onWindowUpdate('minimize', name)"
+				:maximized="program.maximized"
+				:transform="program.transform"
 				@resize="onWindowUpdate('resize', name, $event)"
+				@maximize="onWindowUpdate('maximize', name, $event)"
+				@suspend="onWindowUpdate('suspend', name)"
 				@close="onWindowUpdate('close', name)"
 			>
 				<component :is="program.component" />
@@ -29,7 +30,7 @@
 		<lw-taskbar
 			class="lw-app__taskbar"
 			:programs="running"
-			@start="$store.commit('program/minimize', 'all')"
+			@start="$store.commit('program/suspend', 'all')"
 			@toggle="$store.commit('program/open', $event)"
 		/>
 
@@ -73,17 +74,18 @@ export default {
 	methods: {
 		onWindowUpdate(action, name, payload = null) {
 			switch (action) {
-				case 'minimize':
-					this.$store.commit('program/minimize', name)
+				case 'suspend':
+					this.$store.commit('program/suspend', name)
 					break
 				case 'maximize':
-					this.$store.commit('program/maximize', name)
+					this.$store.commit('program/maximize', { name, maximized: payload })
 					break
 				case 'close':
 					this.$store.commit('program/close', name)
 					break
+				case 'move':
 				case 'resize':
-					this.$store.commit('program/resize', { name, size: payload })
+					this.$store.commit('program/resize', { name, transform: payload })
 					break
 			}
 		},
@@ -98,6 +100,7 @@ html{
 body{
 	background: $c-gray;
 	height: 100%;
+	overflow: hidden;
 }
 
 .lw-app{
@@ -112,16 +115,8 @@ body{
 		position: absolute;
 		top: 0px;
 		left: 0px;
-		right: 0px;
-		bottom: 0px;
 		display: flex;
 		flex-flow: column;
-		&.is-resized{
-			top: 200px;
-			left: 40px;
-			right: 200px;
-			bottom: 100px;
-		}
 	}
 	&__view{
 		flex: 1;

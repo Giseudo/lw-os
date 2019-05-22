@@ -4,10 +4,16 @@ export const state = {
 	programs: {
 		explorer: {
 			name: 'Explorer',
-			state: 'maximized', // maximized | resized,
-			minimized: false,
-			width: 640,
-			height: 480,
+			maximized: false,
+			suspended: false,
+			transform: {
+				x: 0,
+				y: 0,
+				width: 640,
+				height: 480,
+				rotate: 0,
+				scale: 0
+			},
 			component: require('@/components/templates/LWExplorer').default
 		}
 	},
@@ -34,33 +40,34 @@ export const getters = {
 export const mutations = {
 	resize(state, payload) {
 		let name = payload.name,
-			size = payload.size
+			transform = payload.transform
 
-		Vue.set(state.programs[name], 'state', 'resized')
-		Vue.set(state.programs[name], 'width', size.width)
-		Vue.set(state.programs[name], 'height', size.height)
+		Vue.set(state.programs[name], 'transform', transform)
 	},
 
-	maximize(state, name) {
-		Vue.set(state.programs[name], 'state', 'maximized')
+	maximize(state, payload) {
+		let name = payload.name,
+			maximized = payload.maximized
+
+		Vue.set(state.programs[name], 'maximized', maximized)
 	},
 
-	minimize(state, name) {
-		// Minimize all the programs
+	suspend(state, name) {
+		// Suspend all the programs
 		if (name == 'all')
 			return state.running.forEach(program => {
-				Vue.set(state.programs[program], 'minimized', true)
+				Vue.set(state.programs[program], 'suspended', true)
 			})
 
 		// Minimize the program
-		Vue.set(state.programs[name], 'minimized', true)
+		Vue.set(state.programs[name], 'suspended', true)
 	},
 
 	open(state, name) {
 		if (!state.running.includes(name)) {
 			state.running.push(name)
 		} else {
-			Vue.set(state.programs[name], 'minimized', !state.programs[name].minimized)
+			Vue.set(state.programs[name], 'suspended', !state.programs[name].suspended)
 		}
 	},
 
