@@ -18,7 +18,7 @@
 				:height="program.height"
 				:maximized="program.maximized"
 				:transform="program.transform"
-				@resize="onWindowUpdate('resize', name, $event)"
+				@translate="onWindowUpdate('translate', name, $event)"
 				@maximize="onWindowUpdate('maximize', name, $event)"
 				@suspend="onWindowUpdate('suspend', name)"
 				@close="onWindowUpdate('close', name)"
@@ -83,9 +83,8 @@ export default {
 				case 'close':
 					this.$store.commit('program/close', name)
 					break
-				case 'move':
-				case 'resize':
-					this.$store.commit('program/resize', { name, transform: payload })
+				case 'translate':
+					this.$store.commit('program/translate', { name, transform: payload })
 					break
 			}
 		},

@@ -38,7 +38,7 @@ export const getters = {
 }
 
 export const mutations = {
-	resize(state, payload) {
+	translate(state, payload) {
 		let name = payload.name,
 			transform = payload.transform
 

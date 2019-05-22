@@ -117,8 +117,8 @@ export default {
 				.on('resizemove', this.onResizeMove)
 		},
 
-		update(x, y, width, height, rotate = 0, scale = 1) {
-			this.$emit('resize', {
+		translate(x, y, width, height, rotate = 0, scale = 1) {
+			this.$emit('translate', {
 				x: x ? x : this.transform.x,
 				y: y ? y : this.transform.y,
 				width: width ? width : this.transform.width,
@@ -133,7 +133,7 @@ export default {
 				x = (parseFloat(this.transform.x) || 0) + event.dx,
 				y = (parseFloat(this.transform.y) || 0) + event.dy
 
-			this.update(x, y)
+			this.translate(x, y)
 		},
 
 		onResizeMove(event) {
@@ -149,7 +149,7 @@ export default {
 			x += event.deltaRect.left
 			y += event.deltaRect.top
 
-			this.update(x, y, width, height)
+			this.translate(x, y, width, height)
 		}
 	}
 }
